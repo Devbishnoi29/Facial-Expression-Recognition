@@ -7,7 +7,7 @@ This data set contains about 28672 training images and 7168 testing images(publi
 We are training our model on training images and validating our trained model on testing images.
 In each epoch we are processing 35500 images of [48, 48, 3] dimentions.
 
-#Here we have graph represent cnn model
+# Here we have graph represent cnn model
 ![graph goes here](https://github.com/Devbishnoi29/Facial-Expression-Recognition/blob/master/images/tfgraph.png)
 
 # Training and Evaluation of CNN model
