@@ -113,3 +113,12 @@ epoch :  97  cost:  7995393.507463455   train acc:  27049 / 28672  test acc:  30
 epoch :  98  cost:  7778180.11340332   train acc:  27994 / 28672  test acc:  3125 / 7168<br>
 epoch :  99  cost:  6883788.428237915   train acc:  27879 / 28672  test acc:  3086 / 7168<br>
 epoch :  100  cost:  7296276.241004944   train acc:  27745 / 28672  test acc:  3136 / 7168<br>
+
+# Plot between Cost and Epochs
+![cost plot](https://github.com/Devbishnoi29/Facial-Expression-Recognition/blob/master/images/Cost.PNG)
+
+# Plot between Training Accuracy and Epochs
+![Train accuracy](https://github.com/Devbishnoi29/Facial-Expression-Recognition/blob/master/images/TrainAcc.PNG)
+
+# Plot between Testing Accuracy and Epochs
+![Test Accuracy](https://github.com/Devbishnoi29/Facial-Expression-Recognition/blob/master/images/TestAcc.PNG)
