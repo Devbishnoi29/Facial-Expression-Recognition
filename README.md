@@ -9,9 +9,9 @@ In each epoch we are processing 35500 images of [48, 48, 3] dimentions.
 
 Here we have cost, training accuracy, test accuracy with training epochs.
 
-epoch :  1  cost:  15165665335.0   train acc:  7213 / 28672  test acc:  1684 / 7168
-epoch :  2  cost:  7236739576.0   train acc:  8552 / 28672  test acc:  1964 / 7168
-epoch :  3  cost:  5321358556.0   train acc:  8918 / 28672  test acc:  2018 / 7168
+epoch :  1  cost:  15165665335.0   train acc:  7213 / 28672  test acc:  1684 / 7168<br>
+epoch :  2  cost:  7236739576.0   train acc:  8552 / 28672  test acc:  1964 / 7168<br>
+epoch :  3  cost:  5321358556.0   train acc:  8918 / 28672  test acc:  2018 / 7168<br>
 epoch :  4  cost:  4317758495.5   train acc:  8783 / 28672  test acc:  1928 / 7168<br>
 epoch :  5  cost:  3598166824.5   train acc:  8936 / 28672  test acc:  1951 / 7168<br>
 epoch :  6  cost:  3065639233.75   train acc:  9385 / 28672  test acc:  2019 / 7168<br>
