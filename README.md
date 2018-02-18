@@ -8,7 +8,8 @@ We are training our model on training images and validating our trained model on
 In each epoch we are processing 35500 images of [48, 48, 3] dimentions.
 
 #Here we have graph represent cnn model
-![graph goes here](http://https://github.com/Devbishnoi29/Facial-Expression-Recognition/images/tfgraph.png)
+![graph goes here](https://github.com/Devbishnoi29/Facial-Expression-Recognition/blob/master/images/tfgraph.png)
+
 # Training and Evaluation of CNN model
 Here we have cost, training accuracy, test accuracy with training epochs.
 
