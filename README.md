@@ -8,7 +8,7 @@ Facial Emotion recognition is very easy task for human, as we have a very comple
 * Knowledge of deep learning concepts, if you don't feel comfortable working with cnn then you can use [online book by Michael Nielsen](http://neuralnetworksanddeeplearning.com/index.html).
 * Facial expression data set must be available on your system, [download here](https://www.kaggle.com/c/challenges-in-representation-learning-facial-expression-recognition-challenge)
 
-#Data-sets
+# Data-sets
 The available data sets contains 7 basic emotions: happy, sad, disgust, surprise, fear, anger and neutral. It comprises a total of 35887 pre-cropped, 48-by-48-pixel grayscale images of faces each labeled with one of the 7 emotion classes. This tells that our cnn model outputs either probabilities or class score into 7 classes. I used 28672 number of images for training our neural network model and 7168 number of images for testing purpose.
 
 # The Model
@@ -53,5 +53,5 @@ Here we have cost, training accuracy, test accuracy with training epochs.
 # Plot between Testing Accuracy and Epochs
 ![Test Accuracy](https://github.com/Devbishnoi29/Facial-Expression-Recognition/blob/master/images/TestAcc.PNG)
 
-#About me
+# About me
 Devbishnoi is computer programmer who loves solve programming problems and exploring the exciting possibilities using deep learning. He is interested in solving real life problems using efficient algorithms and computer vision that creates innovative solutions to real-world problems. I hold a B.Tech degree in computer Engineering From Nit kurukshetra. You can reach me on [LinkedIn]().
