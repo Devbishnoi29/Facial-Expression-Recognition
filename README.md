@@ -51,4 +51,4 @@ Simply run python file.
 ![Test Accuracy](https://github.com/Devbishnoi29/Facial-Expression-Recognition/blob/master/images/TestAcc.PNG)
 
 # About me
-Devbishnoi is computer programmer who loves solve programming problems and exploring the exciting possibilities using deep learning. He is interested in solving real life problems using efficient algorithms and computer vision that creates innovative solutions to real-world problems. I hold a B.Tech degree in computer Engineering From Nit kurukshetra. You can reach me on [LinkedIn](https://www.linkedin.com/in/devi-lal-468596126/).
+I am computer programmer who loves solve programming problems and exploring the exciting possibilities using deep learning. He is interested in solving real life problems using efficient algorithms and computer vision that creates innovative solutions to real-world problems. I hold a B.Tech degree in computer Engineering From Nit kurukshetra. You can reach me on [LinkedIn](https://www.linkedin.com/in/devi-lal-468596126/).
