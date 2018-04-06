@@ -1,118 +1,48 @@
 # Facial-Expression-Recognition using Tensorflow
+	
+Facial Emotion recognition is very easy task for human, as we have a very complex and sophisticated biological neural network in our brain which has been trained since we born. But it is very difficult task for computer machines. Here I provide a neural network implementation to perform facial expression recognition. It implements a simple but efficient convolution neural network using most popular library tensorflow.
 
-This project uses tensorflow library to implement convolution neural network model.
-This model is trained on facial-expression data set available on kaggle.
-Here we facial expression model recognizes 6 basic emotions: happy, sad, surprise, fear, anger and neutral.
-This data set contains about 28672 training images and 7168 testing images(public test + private test).
-We are training our model on training images and validating our trained model on testing images.
-In each epoch we are processing 35500 images of [48, 48, 3] dimentions.
+# Prerequisites
+* Tensorflow version latest by 1.1, see how to [install](https://www.tensorflow.org/install/)
+* Csv lib
+* Knowledge of deep learning concepts, if you don't feel comfortable working with cnn then you can use [online book by Michael Nielsen](http://neuralnetworksanddeeplearning.com/index.html).
+* Facial expression data set must be available on your system, [download here](https://www.kaggle.com/c/challenges-in-representation-learning-facial-expression-recognition-challenge)
 
-# Here we have graph represent cnn model
+#Data-sets
+The available data sets contains 7 basic emotions: happy, sad, disgust, surprise, fear, anger and neutral. It comprises a total of 35887 pre-cropped, 48-by-48-pixel grayscale images of faces each labeled with one of the 7 emotion classes. This tells that our cnn model outputs either probabilities or class score into 7 classes. I used 28672 number of images for training our neural network model and 7168 number of images for testing purpose.
+
+# The Model
+	It uses csv python module to open given csv file into appropriate csv module. Here we use 5 layers.
+		* 1. Convolutional layer 
+			Input  : 4d tensor, dim:[N, w, h, Number of input channel = 1], where N is batch size.
+			Output : 4d tensor, dim:[N, w/2, h/2, Number of filters at cnn layer-1]
+
+		* 2. Convolutional layer 
+			Input  : 4d tensor, dim:[N, w/2, h/2, Number of filters at cnn layer-1]
+			Output : 4d tensor, dim:[N, w/4, h/4, Number of filters at cnn layer-2]
+
+			Now this output 4d tensor is flattened inorder to provide input to fully connected layer-1.
+
+		* 3. Fully connected layer
+			Input  : 2d tensor, dim:[N, Flattened size]
+			Output : 2d tenser, dim:[N, Number of neurons at fully connected layer-1]
+
+		* 4. Fully connected layer
+			Input  : 2d tensor, dim:[N, Number of neurons at fully connected layer-1]
+			Output : 2d tenser, dim:[N, Number of neurons at fully connected layer-2]
+
+		* 5. Output layer.
+			Input  : 2d tensor, dim:[N, number of neurons at fully connected layer-2]
+			Output : 2d tenser, dim:[N, Number of classes]
+
+# How to run
+Simply run python file.
+
+# Model graph
 ![graph goes here](https://github.com/Devbishnoi29/Facial-Expression-Recognition/blob/master/images/tfgraph.png)
 
 # Training and Evaluation of CNN model
 Here we have cost, training accuracy, test accuracy with training epochs.
-
-epoch :  1  cost:  15165665335.0   train acc:  7213 / 28672  test acc:  1684 / 7168<br>
-epoch :  2  cost:  7236739576.0   train acc:  8552 / 28672  test acc:  1964 / 7168<br>
-epoch :  3  cost:  5321358556.0   train acc:  8918 / 28672  test acc:  2018 / 7168<br>
-epoch :  4  cost:  4317758495.5   train acc:  8783 / 28672  test acc:  1928 / 7168<br>
-epoch :  5  cost:  3598166824.5   train acc:  8936 / 28672  test acc:  1951 / 7168<br>
-epoch :  6  cost:  3065639233.75   train acc:  9385 / 28672  test acc:  2019 / 7168<br>
-epoch :  7  cost:  2632670139.0   train acc:  9634 / 28672  test acc:  1980 / 7168<br>
-epoch :  8  cost:  2310305381.75   train acc:  10488 / 28672  test acc:  2112 / 7168<br>
-epoch :  9  cost:  2029115268.75   train acc:  11879 / 28672  test acc:  2291 / 7168<br>
-epoch :  10  cost:  1777792137.25   train acc:  12186 / 28672  test acc:  2317 / 7168<br>
-epoch :  11  cost:  1556510014.125   train acc:  12985 / 28672  test acc:  2349 / 7168<br>
-epoch :  12  cost:  1359082716.875   train acc:  13442 / 28672  test acc:  2417 / 7168<br>
-epoch :  13  cost:  1199721577.0   train acc:  13915 / 28672  test acc:  2477 / 7168<br>
-epoch :  14  cost:  1048370381.8125   train acc:  14365 / 28672  test acc:  2478 / 7168<br>
-epoch :  15  cost:  935349166.0625   train acc:  15088 / 28672  test acc:  2542 / 7168<br>
-epoch :  16  cost:  838720616.9375   train acc:  15392 / 28672  test acc:  2612 / 7168<br>
-epoch :  17  cost:  777195333.375   train acc:  14706 / 28672  test acc:  2460 / 7168<br>
-epoch :  18  cost:  711690754.625   train acc:  15445 / 28672  test acc:  2443 / 7168<br>
-epoch :  19  cost:  616924073.25   train acc:  16259 / 28672  test acc:  2459 / 7168<br>
-epoch :  20  cost:  544953402.125   train acc:  17858 / 28672  test acc:  2539 / 7168<br>
-epoch :  21  cost:  481028458.46875   train acc:  19061 / 28672  test acc:  2626 / 7168<br>
-epoch :  22  cost:  408414318.3125   train acc:  19550 / 28672  test acc:  2695 / 7168<br>
-epoch :  23  cost:  365802783.40625   train acc:  19084 / 28672  test acc:  2755 / 7168<br>
-epoch :  24  cost:  326591756.203125   train acc:  19601 / 28672  test acc:  2784 / 7168<br>
-epoch :  25  cost:  282989052.515625   train acc:  19556 / 28672  test acc:  2747 / 7168<br>
-epoch :  26  cost:  249887212.234375   train acc:  21360 / 28672  test acc:  2797 / 7168<br>
-epoch :  27  cost:  241522502.140625   train acc:  21476 / 28672  test acc:  2719 / 7168<br>
-epoch :  28  cost:  228091611.15625   train acc:  22225 / 28672  test acc:  2768 / 7168<br>
-epoch :  29  cost:  214492489.4140625   train acc:  21941 / 28672  test acc:  2812 / 7168<br>
-epoch :  30  cost:  185023736.53125   train acc:  22288 / 28672  test acc:  2830 / 7168<br>
-epoch :  31  cost:  164348103.546875   train acc:  21794 / 28672  test acc:  2777 / 7168<br>
-epoch :  32  cost:  130319632.453125   train acc:  21618 / 28672  test acc:  2669 / 7168<br>
-epoch :  33  cost:  102288892.41015625   train acc:  23273 / 28672  test acc:  2714 / 7168<br>
-epoch :  34  cost:  89067810.27539062   train acc:  23378 / 28672  test acc:  2749 / 7168<br>
-epoch :  35  cost:  79164715.76367188   train acc:  22855 / 28672  test acc:  2674 / 7168<br>
-epoch :  36  cost:  68351617.78808594   train acc:  24177 / 28672  test acc:  2839 / 7168<br>
-epoch :  37  cost:  60699066.79589844   train acc:  23750 / 28672  test acc:  2771 / 7168<br>
-epoch :  38  cost:  56546747.91894531   train acc:  24216 / 28672  test acc:  2841 / 7168<br>
-epoch :  39  cost:  49596428.150390625   train acc:  25132 / 28672  test acc:  2898 / 7168<br>
-epoch :  40  cost:  47576223.650390625   train acc:  24462 / 28672  test acc:  2866 / 7168<br>
-epoch :  41  cost:  45941410.72949219   train acc:  22141 / 28672  test acc:  2666 / 7168<br>
-epoch :  42  cost:  41866706.447753906   train acc:  21760 / 28672  test acc:  2738 / 7168<br>
-epoch :  43  cost:  38701638.596191406   train acc:  24701 / 28672  test acc:  2887 / 7168<br>
-epoch :  44  cost:  33630342.30859375   train acc:  23783 / 28672  test acc:  2828 / 7168<br>
-epoch :  45  cost:  31964901.98803711   train acc:  24122 / 28672  test acc:  2858 / 7168<br>
-epoch :  46  cost:  30847160.69592285   train acc:  25377 / 28672  test acc:  2896 / 7168<br>
-epoch :  47  cost:  26159882.752075195   train acc:  26115 / 28672  test acc:  2970 / 7168<br>
-epoch :  48  cost:  21165810.879882812   train acc:  26839 / 28672  test acc:  3005 / 7168<br>
-epoch :  49  cost:  20693604.372802734   train acc:  26976 / 28672  test acc:  3059 / 7168<br>
-epoch :  50  cost:  18629499.391845703   train acc:  27025 / 28672  test acc:  3044 / 7168<br>
-epoch :  51  cost:  16997165.002685547   train acc:  26353 / 28672  test acc:  3037 / 7168<br>
-epoch :  52  cost:  16464686.280395508   train acc:  25517 / 28672  test acc:  2926 / 7168<br>
-epoch :  53  cost:  15079002.959075928   train acc:  26078 / 28672  test acc:  2988 / 7168<br>
-epoch :  54  cost:  14237528.275878906   train acc:  27140 / 28672  test acc:  3042 / 7168<br>
-epoch :  55  cost:  15442032.483032227   train acc:  25877 / 28672  test acc:  2975 / 7168<br>
-epoch :  56  cost:  14791048.852111816   train acc:  26700 / 28672  test acc:  3055 / 7168<br>
-epoch :  57  cost:  15572031.926635742   train acc:  25936 / 28672  test acc:  2940 / 7168<br>
-epoch :  58  cost:  14081584.420856476   train acc:  27417 / 28672  test acc:  3016 / 7168<br>
-epoch :  59  cost:  13518555.328493861   train acc:  26540 / 28672  test acc:  3046 / 7168<br>
-epoch :  60  cost:  11646346.450946808   train acc:  26642 / 28672  test acc:  3104 / 7168<br>
-epoch :  61  cost:  12647372.4678154   train acc:  27188 / 28672  test acc:  3041 / 7168<br>
-epoch :  62  cost:  10647762.420471191   train acc:  26833 / 28672  test acc:  3130 / 7168<br>
-epoch :  63  cost:  10231502.643675804   train acc:  27531 / 28672  test acc:  3092 / 7168<br>
-epoch :  64  cost:  12382367.184242249   train acc:  26442 / 28672  test acc:  2967 / 7168<br>
-epoch :  65  cost:  12990593.242847443   train acc:  26477 / 28672  test acc:  3013 / 7168<br>
-epoch :  66  cost:  10382846.068695068   train acc:  26796 / 28672  test acc:  3092 / 7168<br>
-epoch :  67  cost:  10279110.340015411   train acc:  26945 / 28672  test acc:  2950 / 7168<br>
-epoch :  68  cost:  10724515.887840271   train acc:  26881 / 28672  test acc:  3127 / 7168<br>
-epoch :  69  cost:  10796070.252212582   train acc:  27219 / 28672  test acc:  3080 / 7168<br>
-epoch :  70  cost:  10626302.272785187   train acc:  27827 / 28672  test acc:  3118 / 7168<br>
-epoch :  71  cost:  10990408.931396484   train acc:  26839 / 28672  test acc:  3091 / 7168<br>
-epoch :  72  cost:  9814645.451957703   train acc:  27828 / 28672  test acc:  3130 / 7168<br>
-epoch :  73  cost:  10159602.016139984   train acc:  27660 / 28672  test acc:  3112 / 7168<br>
-epoch :  74  cost:  10128269.267658234   train acc:  27716 / 28672  test acc:  3146 / 7168<br>
-epoch :  75  cost:  10649866.49369812   train acc:  27553 / 28672  test acc:  3123 / 7168<br>
-epoch :  76  cost:  9167193.421764374   train acc:  27296 / 28672  test acc:  3089 / 7168<br>
-epoch :  77  cost:  10267554.826644897   train acc:  27965 / 28672  test acc:  3076 / 7168<br>
-epoch :  78  cost:  9133681.758714676   train acc:  27891 / 28672  test acc:  3091 / 7168<br>
-epoch :  79  cost:  9032810.867706299   train acc:  27578 / 28672  test acc:  2988 / 7168<br>
-epoch :  80  cost:  10335012.695072174   train acc:  27576 / 28672  test acc:  3048 / 7168<br>
-epoch :  81  cost:  8955881.10490799   train acc:  27904 / 28672  test acc:  3121 / 7168<br>
-epoch :  82  cost:  8294377.22284317   train acc:  27454 / 28672  test acc:  3141 / 7168<br>
-epoch :  83  cost:  8969452.417964935   train acc:  27593 / 28672  test acc:  3079 / 7168<br>
-epoch :  84  cost:  8489518.256103516   train acc:  27721 / 28672  test acc:  3088 / 7168<br>
-epoch :  85  cost:  8002541.050621033   train acc:  27980 / 28672  test acc:  3148 / 7168<br>
-epoch :  86  cost:  8600121.629581451   train acc:  27421 / 28672  test acc:  2968 / 7168<br>
-epoch :  87  cost:  8891165.505649919   train acc:  27714 / 28672  test acc:  3110 / 7168<br>
-epoch :  88  cost:  9183912.639331818   train acc:  27823 / 28672  test acc:  3150 / 7168<br>
-epoch :  89  cost:  7991417.71913147   train acc:  27624 / 28672  test acc:  3136 / 7168<br>
-epoch :  90  cost:  8432556.904781342   train acc:  27531 / 28672  test acc:  3123 / 7168<br>
-epoch :  91  cost:  8330354.230007172   train acc:  27831 / 28672  test acc:  3130 / 7168<br>
-epoch :  92  cost:  7032910.414138794   train acc:  27447 / 28672  test acc:  3087 / 7168<br>
-epoch :  93  cost:  8984650.18371582   train acc:  26984 / 28672  test acc:  3078 / 7168<br>
-epoch :  94  cost:  7760473.040641785   train acc:  27513 / 28672  test acc:  3099 / 7168<br>
-epoch :  95  cost:  8099285.912059784   train acc:  26080 / 28672  test acc:  3063 / 7168<br>
-epoch :  96  cost:  7797306.575397491   train acc:  27369 / 28672  test acc:  3092 / 7168<br>
-epoch :  97  cost:  7995393.507463455   train acc:  27049 / 28672  test acc:  3085 / 7168<br>
-epoch :  98  cost:  7778180.11340332   train acc:  27994 / 28672  test acc:  3125 / 7168<br>
-epoch :  99  cost:  6883788.428237915   train acc:  27879 / 28672  test acc:  3086 / 7168<br>
-epoch :  100  cost:  7296276.241004944   train acc:  27745 / 28672  test acc:  3136 / 7168<br>
 
 # Plot between Cost and Epochs
 ![cost plot](https://github.com/Devbishnoi29/Facial-Expression-Recognition/blob/master/images/Cost.PNG)
@@ -122,3 +52,6 @@ epoch :  100  cost:  7296276.241004944   train acc:  27745 / 28672  test acc:  3
 
 # Plot between Testing Accuracy and Epochs
 ![Test Accuracy](https://github.com/Devbishnoi29/Facial-Expression-Recognition/blob/master/images/TestAcc.PNG)
+
+#About me
+Devbishnoi is computer programmer who loves solve programming problems and exploring the exciting possibilities using deep learning. He is interested in solving real life problems using efficient algorithms and computer vision that creates innovative solutions to real-world problems. I hold a B.Tech degree in computer Engineering From Nit kurukshetra. You can reach me on [LinkedIn]().
