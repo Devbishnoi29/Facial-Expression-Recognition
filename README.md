@@ -13,25 +13,25 @@ The available data sets contains 7 basic emotions: happy, sad, disgust, surprise
 
 # The Model
 	It uses csv python module to open given csv file into appropriate csv module. Here we use 5 layers.
-		* 1. Convolutional layer 
+		1. Convolutional layer 
 			Input  : 4d tensor, dim:[N, w, h, Number of input channel = 1], where N is batch size.
 			Output : 4d tensor, dim:[N, w/2, h/2, Number of filters at cnn layer-1]
 
-		* 2. Convolutional layer 
+		2. Convolutional layer 
 			Input  : 4d tensor, dim:[N, w/2, h/2, Number of filters at cnn layer-1]
 			Output : 4d tensor, dim:[N, w/4, h/4, Number of filters at cnn layer-2]
 
 			Now this output 4d tensor is flattened inorder to provide input to fully connected layer-1.
 
-		* 3. Fully connected layer
+		3. Fully connected layer
 			Input  : 2d tensor, dim:[N, Flattened size]
 			Output : 2d tenser, dim:[N, Number of neurons at fully connected layer-1]
 
-		* 4. Fully connected layer
+		4. Fully connected layer
 			Input  : 2d tensor, dim:[N, Number of neurons at fully connected layer-1]
 			Output : 2d tenser, dim:[N, Number of neurons at fully connected layer-2]
 
-		* 5. Output layer.
+		5. Output layer.
 			Input  : 2d tensor, dim:[N, number of neurons at fully connected layer-2]
 			Output : 2d tenser, dim:[N, Number of classes]
 
@@ -40,9 +40,6 @@ Simply run python file.
 
 # Model graph
 ![graph goes here](https://github.com/Devbishnoi29/Facial-Expression-Recognition/blob/master/images/tfgraph.png)
-
-# Training and Evaluation of CNN model
-Here we have cost, training accuracy, test accuracy with training epochs.
 
 # Plot between Cost and Epochs
 ![cost plot](https://github.com/Devbishnoi29/Facial-Expression-Recognition/blob/master/images/Cost.PNG)
@@ -54,4 +51,4 @@ Here we have cost, training accuracy, test accuracy with training epochs.
 ![Test Accuracy](https://github.com/Devbishnoi29/Facial-Expression-Recognition/blob/master/images/TestAcc.PNG)
 
 # About me
-Devbishnoi is computer programmer who loves solve programming problems and exploring the exciting possibilities using deep learning. He is interested in solving real life problems using efficient algorithms and computer vision that creates innovative solutions to real-world problems. I hold a B.Tech degree in computer Engineering From Nit kurukshetra. You can reach me on [LinkedIn]().
+Devbishnoi is computer programmer who loves solve programming problems and exploring the exciting possibilities using deep learning. He is interested in solving real life problems using efficient algorithms and computer vision that creates innovative solutions to real-world problems. I hold a B.Tech degree in computer Engineering From Nit kurukshetra. You can reach me on [LinkedIn](https://www.linkedin.com/in/devi-lal-468596126/).
